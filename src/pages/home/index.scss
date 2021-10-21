@@ -1,0 +1,52 @@
+
+.home {
+  &__bg {
+    width: 100vw;
+    height: 412.5px;
+    object-fit: contain;
+    background: #3F8FFF;
+  }
+
+  &-toolbox {
+    height: 100px;
+    background: #fff;
+    width: 90vw;
+    margin: 30px auto 0;
+    border-radius: 10px;
+    padding: 18px 0;
+    box-sizing: border-box;
+    @include flexAlign(center);
+    @include flexJustify(center);
+    position: relative;
+
+    &__item {
+      height: 64px;
+      @include flexAlign(center);
+
+      &:nth-of-type(2) {
+        margin-left: 25vw;
+      }
+    }
+
+    &__img {
+      margin-right: 16px;
+      width: 48px;
+      height: 48px;
+    }
+
+    &::after {
+      width: 1px;
+      content: '';
+      position: absolute;
+      top: 18px;
+      bottom: 18px;
+      left: calc(50% - 0.5px);
+      border-right: 1px dotted #ccc;
+    }
+
+    &__text {
+      color: rgb(100, 101, 102);
+      font-size: 28px;
+    }
+  }
+}

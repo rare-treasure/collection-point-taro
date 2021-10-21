@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "collection-point",
+  "description": "通用的代收点小程序，可开箱即用",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}

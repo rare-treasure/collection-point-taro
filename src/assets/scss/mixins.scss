@@ -1,0 +1,15 @@
+@mixin flex {
+  display: flex;
+}
+
+@mixin flexAlign($var) {
+  @include flex;
+
+  align-items: $var;
+}
+
+@mixin flexJustify($var) {
+  @include flex;
+
+  justify-content: $var;
+}
