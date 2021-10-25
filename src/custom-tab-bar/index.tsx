@@ -1,6 +1,7 @@
-import { memo, useCallback, useMemo } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { AtTabBar } from "taro-ui";
-import Taro from "@tarojs/taro";
+import Taro, { useRouter } from "@tarojs/taro";
+import { eventBus } from "@/utils";
 
 import config from '../app.config'
 
@@ -15,13 +16,13 @@ const tabBarList = (config.tabBar?.list ?? []).map(item => ({
 }));
 
 const TabBar = () => {
-  const currentSelectedTab = useMemo(() => {
-    const currentPage = Taro.getCurrentPages().pop();
+  const [selectedTabIdx, setSelectedTabIdx] = useState(0);
 
-    const idx = tabBarList.findIndex(tabBar => tabBar?.pagePath === currentPage?.route);
-
-    return idx > 0 ? idx : 0;
-  }, []);
+  useEffect(() => {
+    eventBus.on('selectedTabIdx', (idx: number) => {
+      setSelectedTabIdx(idx)
+    })
+  }, [])
 
   const handleTabClick = useCallback((idx: number) => {
     Taro.switchTab({
@@ -34,7 +35,7 @@ const TabBar = () => {
       fixed
       onClick={handleTabClick}
       tabList={tabBarList}
-      current={currentSelectedTab}
+      current={selectedTabIdx}
       color='#707070'
       selectedColor='#3F8FFF'
     />

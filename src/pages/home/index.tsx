@@ -1,5 +1,6 @@
-import { memo, useCallback } from "react";
-import Taro from '@tarojs/taro'
+import { memo, useCallback, useEffect } from "react";
+import Taro, { useDidShow } from '@tarojs/taro'
+import { eventBus } from "@/utils";
 
 import bgIcon from "@/assets/images/home_bg.png";
 import sendIcon from "@/assets/icons/send.png";
@@ -15,6 +16,10 @@ const Home = (props: PropsType) => {
       url: pageUrl
     })
   }, [])
+
+  useDidShow(() => {
+    eventBus.emit('selectedTabIdx', 0);
+  })
 
   return (
     <div className='home'>
