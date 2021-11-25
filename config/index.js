@@ -4,10 +4,9 @@ const path = require('path');
 const config = {
   projectName: 'collection-point',
   date: '2021-10-18',
-  designWidth: 750,
+  designWidth: 375,
   deviceRatio: {
     640: 2.34 / 2,
-    750: 1,
     828: 1.81 / 2,
     375: 2 / 1
   },
