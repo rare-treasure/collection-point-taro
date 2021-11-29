@@ -18,6 +18,7 @@ const Package = (props: PropsType) => {
   const [current, setCurrent] = useState(0);
   const [isShowScan, setIsShowScan] = useState(true);
   const [searchVal, setSearchVal] = useState('');
+  const [historyList, setHistoryList] = useState([]);
   const tabList = useMemo(() => [{ title: '取件区' }, { title: '历史取件' }], [])
 
   const handleClick = (value: number) => {
@@ -28,12 +29,19 @@ const Package = (props: PropsType) => {
     setIsShowScan(false)
   }, [])
 
-  const historyList = useMemo(() => {
-    return Taro.getStorageSync('history-list') || ['2391232321312', '3213124213421', '321312321321321']
-  }, [])
-
   const handleSearchClose = useCallback(() => {
     setIsShowScan(true)
+  }, [])
+
+  const handleHistoryClear = useCallback(() => {
+    Taro.removeStorage({ key: 'history-list' })
+    setHistoryList([])
+  }, []);
+
+  useEffect(() => {
+    const historyList = Taro.getStorageSync('history-list') || ['2391232321312', '3213124213421', '321312321321321']
+
+    setHistoryList(historyList);
   }, [])
 
   return <div className='package'>
@@ -71,7 +79,7 @@ const Package = (props: PropsType) => {
             </ul>
           })()
         }
-        <span className='package-history__clear'>清空</span>
+        <span className='package-history__clear' onClick={handleHistoryClear}>清空</span>
       </div> : null }
     </div>
     { !isShowScan ? <div className='package-mask' onClick={handleSearchClose}></div> : null }
@@ -92,10 +100,12 @@ const Package = (props: PropsType) => {
 
             <div className='package-site__num'>
               9个
-            </div>
+            </div>·
           </div>
 
-          <div className='package-site__card'></div>
+          <div className='package-site__list'>
+            <div className='package-site__card'></div>
+          </div>
         </div>
       </AtTabsPane>
       <AtTabsPane current={current} index={1}>

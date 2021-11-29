@@ -2,25 +2,25 @@
 .home {
   &__bg {
     width: 100vw;
-    height: 206px;
+    height: 412px;
     object-fit: contain;
     background: #3F8FFF;
   }
 
   &-toolbox {
-    height: 50px;
+    height: 100px;
     background: #fff;
     width: 90vw;
-    margin: 15px auto 0;
-    border-radius: 5px;
-    padding: 9px 0;
+    margin: 20px auto 0;
+    border-radius: 10px;
+    padding: 18px 0;
     box-sizing: border-box;
     @include flexAlign(center);
     @include flexJustify(center);
     position: relative;
 
     &__item {
-      height: 32px;
+      height: 64px;
       @include flexAlign(center);
 
       &:nth-of-type(2) {
@@ -29,24 +29,24 @@
     }
 
     &__img {
-      margin-right: 8px;
-      width: 24px;
-      height: 24px;
+      margin-right: 16px;
+      width: 48px;
+      height: 48px;
     }
 
     &::after {
-      width: 1PX;
+      width: 2px;
       content: '';
       position: absolute;
-      top: 9px;
-      bottom: 9px;
-      left: calc(50% - 1px);
-      border-right: 1PX dotted #ccc;
+      top: 18px;
+      bottom: 18px;
+      left: calc(50% - 2px);
+      border-right: 2px dotted #ccc;
     }
 
     &__text {
       color: rgb(100, 101, 102);
-      font-size: 14px;
+      font-size: 28px;
     }
   }
 }
