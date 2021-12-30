@@ -2,6 +2,7 @@
 @import "~taro-ui/dist/style/components/search-bar.scss";
 @import "~taro-ui/dist/style/components/button.scss";
 @import "~taro-ui/dist/style/components/icon.scss";
+@import "~taro-ui/dist/style/components/checkbox.scss";
 
 .package {
   background: #fff;
@@ -117,5 +118,163 @@
     bottom: 0;
     background: rgba(0,0,0,.4);
     z-index: 10;
+  }
+
+  &-site {
+    margin: 26px 20px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+
+    &__info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 30px;
+      padding-bottom: 24px;
+      border-bottom: 1px dashed rgba(0, 0, 0, .1);
+      margin-bottom: 20px;
+    }
+
+    &__addr {
+      margin-top: 6px;
+      font-size: 26px;
+      color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        @include line-clamp();
+      }
+    }
+
+    &__num {
+      font-size: 28px;
+      color: rgba(63, 143, 255, .7);
+      flex-shrink: 0;
+      margin-left: 20px;
+    }
+
+    &__location {
+      @include bg('location');
+      width: 24px;
+      height: 24px;
+      margin-left: 8px;
+      flex-shrink: 0;
+    }
+
+    &__card {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .at-checkbox {
+        &::after,
+        &::before {
+          content: none;
+        }
+
+        &__option {
+          padding: 0;
+
+          &-wrap {
+            padding: 0
+          }
+
+          &:active {
+            background-color: #fff;
+          }
+        }
+
+        &__icon-cnt {
+          margin-top: 0;
+          border-color: rgba(0, 0, 0, .28);
+          margin-right: 16px;
+        }
+
+        &__option--selected {
+          .at-checkbox__icon-cnt {
+            background-color: rgba(63, 143, 255, 0.89)
+          }
+        }
+      }
+    }
+
+    &__express {
+      text-align: left;
+      flex: 1;
+      margin-left: 16px;
+    }
+
+    &__time {
+      color: rgba(0, 0, 0, .36);
+      font-size: 28px;
+    }
+
+    &__code {
+      font-size: 48px;
+      letter-spacing: 1px;
+      font-weight: bolder;
+    }
+
+    &__no {
+      color: rgba(0, 0, 0, .8);
+      font-size: 34px;
+      display: flex;
+      align-items: center;
+    }
+
+    &__copy {
+      @include bg('copy');
+      width: 26px;
+      height: 26px;
+      margin-left: 8px;
+    }
+  }
+
+  &-icon {
+    width: 100px;
+    height: 100px;
+
+    &__common {
+      @include bg('express_common')
+    }
+
+    &__st {
+      @include bg('express_st')
+    }
+
+    &__zt {
+      @include bg('express_zt')
+    }
+
+    &__ems {
+      @include bg('express_ems')
+    }
+
+    &__yd {
+      @include bg('express_yd')
+    }
+
+    &__jt {
+      @include bg('express_jt')
+    }
+
+    &__sf {
+      @include bg('express_sf')
+    }
+  }
+
+  .at-tabs-pane {
+    background: #F3F7F9;
+  }
+
+  .at-tabs__item--active {
+    color: #3F8FFF
+  }
+
+  .at-tabs__item-underline {
+    background: #3F8FFF;
   }
 }

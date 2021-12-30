@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 
 import '@tarojs/taro/html.css';
-import '@/app.scss';
-import '@/assets/scss/global.scss';
+import './app.scss';
 
-import store from './store'
+import store from './store';
 
 class App extends Component {
   componentDidMount () {}

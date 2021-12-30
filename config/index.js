@@ -14,8 +14,7 @@ const config = {
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: ['@tarojs/plugin-html', '@tarojs/plugin-react-devtools'],
-  defineConstants: {
-  },
+  defineConstants: {},
   copy: {
     patterns: [
     ],
@@ -27,14 +26,12 @@ const config = {
     postcss: {
       pxtransform: {
         enable: true,
-        config: {
-
-        }
+        config: {}
       },
       url: {
         enable: true,
         config: {
-          limit: 1024 // 设定转换尺寸上限
+          limit: 1024 * 1000 // 设定转换尺寸上限
         }
       },
       cssModules: {
@@ -67,8 +64,7 @@ const config = {
     postcss: {
       autoprefixer: {
         enable: true,
-        config: {
-        }
+        config: { }
       },
       cssModules: {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true

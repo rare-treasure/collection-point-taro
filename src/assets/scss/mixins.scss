@@ -13,3 +13,29 @@
 
   justify-content: $var;
 }
+
+@mixin bg($name: '', $bgSize: 100% 100%, $bgFold: 'icons', $suffix: '.png') {
+  $url: '~@/assets/' + $bgFold + '/' + $name + $suffix;
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: $bgSize;
+  @content;
+}
+
+@mixin mask-bg($name: '', $bgSize: 100% 100%, $bgFold: 'icons', $suffix: '.png') {
+  $url: '~@/assets/' + $bgFold + '/' + $name + $suffix;
+  mask-image: url($url);
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center center;
+  @content;
+}
+
+@mixin line-clamp($line: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
